@@ -1,1 +1,6 @@
-# working-with-helm-charts
+# Working with Helm Charts
+
+## Prerequisites
+* Kubernetes Cluster
+* Linux OS or WSL
+

@@ -1,5 +1,12 @@
 # Useful Helm Commands
 
+
+## Kubernetes Commands
+``` sh
+# Create a new namespace before beginning
+kubectl create ns devops-experiments
+```
+
 ## Repository
 ``` sh
 # List all available repositories
@@ -44,13 +51,20 @@ helm install mydb bitnami/mysql
 helm status mydb
 ```
 
+## Advanced Commands
+``` sh
+# List all available repositories
+helm list --namespace NAME_OF_NAMESPACE
+```
+
+
 ``` sh
 
 ```
 
+
 ``` sh
 
 ```
-
 
 
