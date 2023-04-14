@@ -1,0 +1,39 @@
+helm install mydb bitnami/mysql
+NAME: mydb
+LAST DEPLOYED: Fri Apr 14 10:41:53 2023
+NAMESPACE: my-first-namespace
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+CHART NAME: mysql
+CHART VERSION: 9.7.1
+APP VERSION: 8.0.32
+
+** Please be patient while the chart is being deployed **
+
+Tip:
+
+  Watch the deployment status using the command: microk8s.kubectl get pods -w --namespace my-first-namespace
+
+Services:
+
+  echo Primary: mydb-mysql.devops-experiments.svc.cluster.local:3306
+
+Execute the following to get the administrator credentials:
+
+  echo Username: root
+  MYSQL_ROOT_PASSWORD=$(microk8s.kubectl get secret --namespace my-first-namespace mydb-mysql -o jsonpath="{.data.mysql-root-password}" | base64 -d)
+
+To connect to your database:
+
+  1. Run a pod that you can use as a client:
+
+      microk8s.kubectl run mydb-mysql-client --rm --tty -i --restart='Never' --image  docker.io/bitnami/mysql:8.0.32-debian-11-r21 --namespace my-first-namespace --env MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD --command -- bash
+
+  2. To connect to primary service (read/write):
+
+      mysql -h mydb-mysql.my-first-namespace.svc.cluster.local -uroot -p"$MYSQL_ROOT_PASSWORD"
+	 
+
+password : OuHuqGe1xG

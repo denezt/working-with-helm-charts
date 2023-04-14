@@ -41,7 +41,6 @@ helm search repo database --versions
 ```
 
 ## Install a pod
-
 ``` sh
 # Initial install of pod
 helm install mydb bitnami/mysql
@@ -51,15 +50,34 @@ helm install mydb bitnami/mysql
 helm status mydb
 ```
 
+## Remove a pod
+``` sh
+# Remove a pod
+helm uninstall mydb
+```
+``` sh
+# Remove a pod from a specific namespace
+helm uninstall mydb -n NAME_OF_NAMESPACE
+```
+
 ## Advanced Commands
 ``` sh
 # List all available repositories
 helm list --namespace NAME_OF_NAMESPACE
 ```
 
+``` sh
+# How to configure the password to a pod
+# using the CLI.
+# (NOT FOR PRODUCTION)
+helm install mydb bitnami/mysql --set auth.rootPassword="PASSWORD"
+```
 
 ``` sh
-
+# How to configure the password to a pod
+# using the CLI.
+# (NOT FOR PRODUCTION)
+helm install mydb bitnami/mysql --set auth.rootPassword="PASSWORD"
 ```
 
 
